@@ -1,0 +1,9 @@
+# emr
+aws s3 cp ./batch_cr_order.py s3://chiholee-datalake001/emr/script/
+
+s3://chiholee-datalake001/emr/script/batch_cr_order.py
+
+# step submit
+aws emr add-steps --cluster-id j-OORY788FWZC1 \
+--steps '[{"Args":["spark-submit","--deploy-mode","cluster","s3://chiholee-datalake001/emr/script/batch_cr_order.py"],"Type":"CUSTOM_JAR","ActionOnFailure":"CONTINUE","Jar":"command-runner.jar","Properties":"","Name":"Spark application"}]' --region ap-northeast-2
+
