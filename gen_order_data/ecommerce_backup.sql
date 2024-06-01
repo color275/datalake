@@ -64,6 +64,41 @@ INSERT INTO `customer` VALUES (1,'pbkdf2_sha256$260000$PHDOuiOQ88gcUCn0K2wscs$8K
 UNLOCK TABLES;
 
 --
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `promo_id` varchar(255) DEFAULT NULL,
+  `order_cnt` int NOT NULL,
+  `order_price` int NOT NULL,
+  `order_dt` varchar(255) NOT NULL,
+  `last_update_time` datetime(6) NOT NULL,
+  `customer_id` bigint NOT NULL,
+  `product_id` int NOT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `order_prd_id_f3688dba_fk_product_prd_id` (`product_id`),
+  KEY `order_cust_id_a1158f81_fk_customer_id` (`customer_id`),
+  KEY `ix_orders_01` (`promo_id`),
+  KEY `ix_orders_02` (`last_update_time`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
+  CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `product`
 --
 
@@ -128,4 +163,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-01 23:30:41
+-- Dump completed on 2024-06-01 23:36:27
