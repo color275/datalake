@@ -84,13 +84,10 @@
         sudo mkdir /var/log/accesslog
         sudo chown ec2-user:ec2-user /var/log/accesslog
         ```
-
-
-
-### execution
-```bash
-nohup python generate.py &
-```
+    - execution
+        ```bash
+        nohup python generate.py &
+        ```
 
 ### DB Info
 ```sql
@@ -145,8 +142,8 @@ KEY `order_prd_id_f3688dba_fk_product_prd_id` (`product_id`),
 KEY `order_cust_id_a1158f81_fk_customer_id` (`customer_id`),
 KEY `ix_orders_01` (`promo_id`),
 KEY `ix_orders_02` (`last_update_time`),
-CONSTRAINT `order_cust_id_a1158f81_fk_customer_id` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`customer_id`),
-CONSTRAINT `order_prd_id_f3688dba_fk_product_prd_id` FOREIGN KEY (`prd_id`) REFERENCES `product` (`product_id`)
+CONSTRAINT  FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
+CONSTRAINT  FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 INSERT INTO `product` VALUES (1,'새우튀김','img/06.jpg','분식',2000,'2023-04-07 03:06:17.020331'),(2,'김치','img/01.jpg','반찬',8000,'2023-04-07 03:11:08.706238'),(3,'떡볶이','img/02.jpg','분식',4000,'2023-04-07 03:22:06.514964'),(4,'삼겹살','img/04.jpg','육류',11000,'2023-04-07 14:51:54.891245'),(5,'삼계탕','img/05.jpg','육류',15000,'2023-04-07 14:52:18.753837'),(6,'발효빵','img/03.jpg','빵',7000,'2023-04-07 14:53:03.838920'),(7,'고추전','img/07.jpg','분식',11000,'2023-04-07 14:53:30.601177'),(8,'족발','img/08.jpg','안주',18000,'2023-04-07 14:53:59.291312'),(9,'치킨','img/09.jpg','육류',18000,'2023-04-07 14:54:28.374265'),(10,'핫도그','img/10.jpg','분식',1600,'2023-04-07 14:54:41.590185'),(11,'쌀','img/11.jpeg','농산물',35000,'2023-04-10 14:23:58.172584'),(12,'두부','img/12.jpeg','반찬',3500,'2023-04-10 14:24:08.273385'),(13,'비빔밥','img/13.jpeg','분식',9000,'2023-04-10 14:24:14.862454'),(14,'깍뚜기','img/14.jpeg','반찬',10000,'2023-04-10 14:24:38.219251'),(15,'고추장','img/15.jpeg','반찬',12000,'2023-04-10 14:24:21.173251'),(16,'게장','img/16.jpeg','반찬',20000,'2023-04-10 14:24:26.850835'),(17,'된장국','img/17.jpeg','된장국',8000,'2023-04-10 14:24:30.672705'),(18,'호박','img/18.jpeg','채소',12000,'2023-04-10 14:24:35.053926'),(19,'계란찜','img/19.jpeg','반찬',7000,'2023-04-10 14:24:51.925492'),(20,'짜장면','img/20.jpeg','분식',8500,'2023-04-10 14:25:33.222271');
