@@ -3,7 +3,7 @@
   - Name : chiholee-datalake01
   - Key 다운로드 후 chmod 변경 `chmod 400 chiholee-datalake01.pem` 
 
-- EC2 생성
+- EC2 Setup
   - Name : WebServer
   - Amazon Machine Image (AMI) : Amazon Linux 2023 AMI
   - Instance Type : m5.xlarge
