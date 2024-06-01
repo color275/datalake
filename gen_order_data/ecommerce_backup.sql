@@ -26,11 +26,12 @@ SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '';
 --
 -- Table structure for table `customer`
 --
+
 DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
+  `customer_id` bigint NOT NULL AUTO_INCREMENT,
   `password` varchar(128) NOT NULL,
   `last_login` datetime(6) DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
@@ -47,7 +48,7 @@ CREATE TABLE `customer` (
   `address` varchar(200) DEFAULT NULL,
   `last_update_time` datetime(6) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`customer_id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -63,41 +64,6 @@ INSERT INTO `customer` VALUES (1,'pbkdf2_sha256$260000$PHDOuiOQ88gcUCn0K2wscs$8K
 UNLOCK TABLES;
 
 --
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `orders` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `promo_id` varchar(255) DEFAULT NULL,
-  `order_cnt` int NOT NULL,
-  `order_price` int NOT NULL,
-  `order_dt` varchar(255) NOT NULL,
-  `last_update_time` datetime(6) NOT NULL,
-  `cust_id` bigint NOT NULL,
-  `prd_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `order_prd_id_f3688dba_fk_product_prd_id` (`prd_id`),
-  KEY `order_cust_id_a1158f81_fk_customer_id` (`cust_id`),
-  KEY `ix_orders_01` (`promo_id`),
-  KEY `ix_orders_02` (`last_update_time`),
-  CONSTRAINT `order_cust_id_a1158f81_fk_customer_id` FOREIGN KEY (`cust_id`) REFERENCES `customer` (`id`),
-  CONSTRAINT `order_prd_id_f3688dba_fk_product_prd_id` FOREIGN KEY (`prd_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `orders`
---
-
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `product`
 --
 
@@ -105,13 +71,13 @@ DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `img_path` varchar(255) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
   `price` int NOT NULL,
   `last_update_time` datetime(6) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -162,4 +128,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-01 23:07:53
+-- Dump completed on 2024-06-01 23:30:41
