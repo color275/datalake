@@ -89,7 +89,7 @@
         nohup python generate.py &
         ```
 
-### DB Info
+### 참고. DB Info
 ```sql
 drop database ecommerce;
 create database ecommerce;
