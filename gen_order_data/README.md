@@ -41,6 +41,10 @@
         cd $HOME
         git clone https://github.com/color275/datalake.git        
         ```
+    - DB Endpoint 환경 변수 저장
+        ```bash
+        export RDS_WRITER_ENDPINT=chiholee.cluster-cz2ms4a2cmjt.ap-northeast-2.rds.amazonaws.com
+        ```
     - order data gen
         ```bash
         cd /home/ec2-user/datalake/gen_order_data
@@ -53,7 +57,7 @@
     - create env
         ```bash
         cat <<EOF > .env
-        MYSQL_HOST=chiholee.cluster-cz2ms4a2cmjt.ap-northeast-2.rds.amazonaws.com
+        MYSQL_HOST=$RDS_WRITER_ENDPINT
         MYSQL_USER=admin
         MYSQL_PASSWORD=admin1234
         MYSQL_DB=ecommerce
@@ -73,7 +77,7 @@
     - RDS 접속, 데이터베이스/테이블 생성(password : admin1234)
         ```bash
         cd /home/ec2-user/datalake/gen_order_data
-        mysql -uadmin -p -h chiholee.cluster-cz2ms4a2cmjt.ap-northeast-2.rds.amazonaws.com
+        mysql -uadmin -p -h $RDS_WRITER_ENDPINT
         create database ecommerce;
         use ecommerce
         source ecommerce_backup.sql
