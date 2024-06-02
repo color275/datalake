@@ -26,7 +26,7 @@ Next
 
 Create cluster
 
-# MSK Clinet Setup
+# MSK, Kafka Cient Setup
 - WebServer SSH 접속
 - Java Install
     ```bash
