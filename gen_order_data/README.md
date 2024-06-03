@@ -98,19 +98,20 @@
 - FluentBit 설치 (https://docs.fluentbit.io/manual/installation/linux/amazon-linux#amazon-linux-2023)
   ```bash
   cd /etc/yum.repos.d/
-  sudo cat << EOF > fluent-bit.repo
+  ```
+  ```bash
+  # sudo vi fluent-bit.repo
   [fluent-bit]
   name = Fluent Bit
   baseurl = https://packages.fluentbit.io/amazonlinux/2023/
   gpgcheck=1
   gpgkey=https://packages.fluentbit.io/fluentbit.key
-  enabled=1
-  EOF
+  enabled=1  
+  ```
+- FluentBit 시작 및 확인
+  ```bash
   sudo yum -y install fluent-bit
   sudo systemctl start fluent-bit
-  ```
-- FluentBit 설치 확인
-  ```bash
   systemctl status fluent-bit
   ```
 
