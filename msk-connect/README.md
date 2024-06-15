@@ -72,9 +72,9 @@ EOF
    ```bash
    curl localhost:8083/connector-plugins | jq
    ````
-![](2024-06-15-12-19-06.png)
+   ![](2024-06-15-12-19-06.png)
 
-1. Sink Connector 생성
+2. Sink Connector 생성
    ```bash
    export S3_BUCKET=chiholee-datalake0001
    export TOPICE_NAME=access_log_topic
@@ -113,7 +113,7 @@ EOF
    }' | jq
    ```
 
-1. Sink Connector 확인
+3. Sink Connector 확인
    ```bash
    # connect list
    curl --location --request GET 'http://localhost:8083/connectors' | jq
@@ -125,7 +125,7 @@ EOF
    tail -f $HOME_DIR/kafka/logs/connect.log
    ```
 
-1. Kafka Consume 상태 확인
+4. Kafka Consume 상태 확인
    ```bash
    kafka-consumer-groups.sh \
    --bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
@@ -136,5 +136,5 @@ EOF
    --group connect-s3-sink-connector --offsets --describe
    ```
 
-1. S3 확인
+5. S3 확인
 ![](2024-06-15-13-48-52.png)
