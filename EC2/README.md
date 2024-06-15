@@ -1,24 +1,24 @@
-# WebServer
+# WebServer 셋업
 ## KeyPair 생성
 1. Name : chiholee-datalake01
 1. Key 다운로드 후 chmod 변경 `chmod 400 chiholee-datalake01.pem` 
 
-- EC2 Setup
-  - Name : WebServer
-  - Amazon Machine Image (AMI) : Amazon Linux 2023 AMI
-  - Instance Type : m5.xlarge
-  - Key pair : chiohlee-datalake01
-  - VPC : chiholee
-  - Subnet : chiholee-public-ap-northeast-2a
-  - Auto-assign public IP : Enable
-  - Common security groups : chiholee-common-sg
-  - Configure stroage : 100gib
-  - Advanced details
-    - IAM instance profile : chiholee-ec2-instance-profile
+## EC2 셋업
+1. Name : WebServer
+1. Amazon Machine Image (AMI) : Amazon Linux 2023 AMI
+1. Instance Type : m5.xlarge
+1. Key pair : chiohlee-datalake01
+1. VPC : chiholee
+1. Subnet : chiholee-public-ap-northeast-2a
+1. Auto-assign public IP : Enable
+1. Common security groups : chiholee-common-sg
+1. Configure stroage : 100gib
+1. Advanced details
+   1. IAM instance profile : chiholee-ec2-instance-profile
 > [!CAUTION]  
 > chiholee-ec2-instance-profile 은 AdministratorAccess 권한을 갖고 있음
 
-  - User data
+   1. User data
     ```bash
     #!/bin/bash
     # Update the package index
