@@ -54,86 +54,87 @@ EOF
 
 
 1. Connect 실행
-```bash
-# 실행
-$HOME_DIR/kafka/bin/connect-distributed.sh -daemon $HOME_DIR/kafka/config/connect-distributed.properties
-# 프로세스 확인
-ps -ef| grep connect-distributed.properties
-# 포트 확인
-sudo netstat -antp | grep 8083
-```
+   ```bash
+   # 실행
+   $HOME_DIR/kafka/bin/connect-distributed.sh -daemon $HOME_DIR/kafka/config/connect-distributed.properties
+   # 프로세스 확인
+   ps -ef| grep connect-distributed.properties
+   # 포트 확인
+   sudo netstat -antp | grep 8083
+   ```
 
 1. Connect 실행 로그 확인
-```bash
-tail -f $HOME_DIR/kafka/logs/connect.log
-```
+   ```bash
+   tail -f $HOME_DIR/kafka/logs/connect.log
+   ```
 
 1. Connect List 확인
-```bash
-curl localhost:8083/connector-plugins | jq
-````
+   ```bash
+   curl localhost:8083/connector-plugins | jq
+   ````
 ![](2024-06-15-12-19-06.png)
 
 1. Sink Connector 생성
-```bash
-export S3_BUCKET=chiholee-datalake0001
-export TOPICE_NAME=access_log_topic
-export S3_DIR=msk
+   ```bash
+   export S3_BUCKET=chiholee-datalake0001
+   export TOPICE_NAME=access_log_topic
+   export S3_DIR=msk
 
-# flush.size : 1000건씩
-# rotate.interval.ms : 60000(1분마다)
+   # flush.size : 1000건씩
+   # rotate.interval.ms : 60000(1분마다)
 
-curl -X PUT "http://localhost:8083/connectors/s3-sink-connector/pause" | jq
-curl -X DELETE "http://localhost:8083/connectors/s3-sink-connector" | jq
-curl --location --request POST 'http://localhost:8083/connectors' \
---header 'Content-Type: application/json' \
---data-raw '{
-  "name": "s3-sink-connector",
-  "config": {
-    "connector.class":"io.confluent.connect.s3.S3SinkConnector",
-	"s3.region":"ap-northeast-2",
-	"flush.size":"1000",
-    "rotate.interval.ms":"60000",
-	"schema.compatibility":"NONE",
-	"tasks.max":"1",
-	"topics":"'"$TOPICE_NAME"'",
-	"value.converter.schemas.enable":"false",
-	"format.class":"io.confluent.connect.s3.format.json.JsonFormat",
-	"key.converter":"org.apache.kafka.connect.storage.StringConverter",
-	"value.converter":"org.apache.kafka.connect.json.JsonConverter",
-	"storage.class":"io.confluent.connect.s3.storage.S3Storage",
-	"s3.bucket.name":"'"$S3_BUCKET"'",
-    "topics.dir":"'"$S3_DIR"'",
-	"partition.duration.ms":"3600000",
-	"partitioner.class":"io.confluent.connect.storage.partitioner.TimeBasedPartitioner",
-	"path.format":"'\'year\''=YYYY/'\'month\''=MM/'\'day\''=dd/'\'hour\''=HH",
-	"timezone":"Asia/Seoul",
-	"locale":"ko_KR"
-  }
-}' | jq
-```
+   curl -X PUT "http://localhost:8083/connectors/s3-sink-connector/pause" | jq
+   curl -X DELETE "http://localhost:8083/connectors/s3-sink-connector" | jq
+   curl --location --request POST 'http://localhost:8083/connectors' \
+   --header 'Content-Type: application/json' \
+   --data-raw '{
+     "name": "s3-sink-connector",
+     "config": {
+       "connector.class":"io.confluent.connect.s3.S3SinkConnector",
+   	"s3.region":"ap-northeast-2",
+   	"flush.size":"1000",
+       "rotate.interval.ms":"60000",
+   	"schema.compatibility":"NONE",
+   	"tasks.max":"1",
+   	"topics":"'"$TOPICE_NAME"'",
+   	"value.converter.schemas.enable":"false",
+   	"format.class":"io.confluent.connect.s3.format.json.JsonFormat",
+   	"key.converter":"org.apache.kafka.connect.storage.StringConverter",
+   	"value.converter":"org.apache.kafka.connect.json.JsonConverter",
+   	"storage.class":"io.confluent.connect.s3.storage.S3Storage",
+   	"s3.bucket.name":"'"$S3_BUCKET"'",
+       "topics.dir":"'"$S3_DIR"'",
+   	"partition.duration.ms":"3600000",
+   	"partitioner.class":"io.confluent.connect.storage.partitioner.TimeBasedPartitioner",
+   	"path.format":"'\'year\''=YYYY/'\'month\''=MM/'\'day\''=dd/'\'hour\''=HH",
+   	"timezone":"Asia/Seoul",
+   	"locale":"ko_KR"
+     }
+   }' | jq
+   ```
 
 1. Sink Connector 확인
-```bash
-# connect list
-curl --location --request GET 'http://localhost:8083/connectors' | jq
-# connect status
-curl --location --request GET 'http://localhost:8083/connectors/s3-sink-connector/status' | jq
-# connect config
-curl -X GET "http://localhost:8083/connectors/s3-sink-connector/config" | jq
+   ```bash
+   # connect list
+   curl --location --request GET 'http://localhost:8083/connectors' | jq
+   # connect status
+   curl --location --request GET 'http://localhost:8083/connectors/s3-sink-connector/status' | jq
+   # connect config
+   curl -X GET "http://localhost:8083/connectors/s3-sink-connector/config" | jq
 
-tail -f $HOME_DIR/kafka/logs/connect.log
-
-```
+   tail -f $HOME_DIR/kafka/logs/connect.log
+   ```
 
 1. Kafka Consume 상태 확인
-```bash
-kafka-consumer-groups.sh \
---bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
---list
+   ```bash
+   kafka-consumer-groups.sh \
+   --bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
+   --list
 
-kafka-consumer-groups.sh \
---bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
---group connect-s3-sink-connector --offsets --describe
-```
+   kafka-consumer-groups.sh \
+   --bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
+   --group connect-s3-sink-connector --offsets --describe
+   ```
 
+1. S3 확인
+![](2024-06-15-13-48-52.png)
