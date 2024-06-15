@@ -3,43 +3,43 @@
 
 ## MSK Config Provider 설치
 1. msk-config-providers 다운로드
-```bash
-export HOME_DIR=~
-mkdir $HOME_DIR/kafka/plugins
-mkdir $HOME_DIR/kafka/plugins/msk-config-providers
-cd $HOME_DIR/media
-wget https://github.com/aws-samples/msk-config-providers/releases/download/r0.1.0/msk-config-providers-0.1.0-with-dependencies.zip
-sudo unzip msk-config-providers-0.1.0-with-dependencies.zip -d $HOME_DIR/kafka/plugins/msk-config-providers/
-cd $HOME_DIR/kafka/plugins/msk-config-providers/
-```
+   ```bash
+   export HOME_DIR=~
+   mkdir $HOME_DIR/kafka/plugins
+   mkdir $HOME_DIR/kafka/plugins/msk-config-providers
+   cd $HOME_DIR/media
+   wget https://github.com/aws-samples/msk-config-providers/releases/download/r0.1.0/msk-config-providers-0.1.0-with-dependencies.zip
+   sudo unzip msk-config-providers-0.1.0-with-dependencies.zip -d $HOME_DIR/kafka/plugins/msk-config-providers/
+   cd $HOME_DIR/kafka/plugins/msk-config-providers/
+   ```
 
-1. connect-distributed.properties 설정
-```bash
-# vi $HOME_DIR/kafka/config/connect-distributed.properties
-cp $HOME_DIR/kafka/config/connect-distributed.properties $HOME_DIR/kafka/config/connect-distributed.properties.cp
-cat << EOF > $HOME_DIR/kafka/config/connect-distributed.properties
-bootstrap.servers=$MSK_BOOTSTRAP_ADDRESS
+2. connect-distributed.properties 설정
+   ```bash
+   # vi $HOME_DIR/kafka/config/connect-distributed.properties
+   cp $HOME_DIR/kafka/config/connect-distributed.properties $HOME_DIR/kafka/config/connect-distributed.properties.cp
+   cat << EOF > $HOME_DIR/kafka/config/connect-distributed.properties
+   bootstrap.servers=$MSK_BOOTSTRAP_ADDRESS
 
-group.id=kafka-connect-cluster
+   group.id=kafka-connect-cluster
 
-key.converter.schemas.enable=true
-key.converter=org.apache.kafka.connect.json.JsonConverter
-value.converter.schemas.enable=true
-value.converter=org.apache.kafka.connect.json.JsonConverter
+   key.converter.schemas.enable=true
+   key.converter=org.apache.kafka.connect.json.JsonConverter
+   value.converter.schemas.enable=true
+   value.converter=org.apache.kafka.connect.json.JsonConverter
 
-offset.storage.topic=kafka-connect-offsets
-offset.storage.replication.factor=2
+   offset.storage.topic=kafka-connect-offsets
+   offset.storage.replication.factor=2
 
-config.storage.topic=kafka-connect-configs
-config.storage.replication.factor=2
+   config.storage.topic=kafka-connect-configs
+   config.storage.replication.factor=2
 
-status.storage.topic=kafka-connect-status
-status.storage.replication.factor=2
+   status.storage.topic=kafka-connect-status
+   status.storage.replication.factor=2
 
-offset.flush.interval.ms=10000
-plugin.path=$HOME_DIR/kafka/plugins
-EOF
-```
+   offset.flush.interval.ms=10000
+   plugin.path=$HOME_DIR/kafka/plugins
+   EOF
+   ```
 
 ## S3 Sink 셋업
 1. Confluent S3 Sink 다운로드
