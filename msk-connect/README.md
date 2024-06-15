@@ -136,5 +136,5 @@
    --group connect-s3-sink-connector --offsets --describe
    ```
 
-5. S3 확인
+### S3 확인
 ![](2024-06-15-13-48-52.png)
