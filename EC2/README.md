@@ -1,4 +1,4 @@
-# WebServer 셋업
+# EC2 셋업
 ## KeyPair 생성
 1. Name : chiholee-datalake01
 1. Key 다운로드 후 chmod 변경 `chmod 400 chiholee-datalake01.pem` 
@@ -94,9 +94,8 @@
 > 
 > RDS 보안그룹이 common 보안그룹 3306 포트 허용
 
-### AccessLog -> MSK 파이프라인
-#### FluentBit
-- FluentBit 설치 (https://docs.fluentbit.io/manual/installation/linux/amazon-linux#amazon-linux-2023)
+### FluentBit ( to MSK)
+1. FluentBit 설치 (https://docs.fluentbit.io/manual/installation/linux/amazon-linux#amazon-linux-2023)
   ```bash
   cd /etc/yum.repos.d/
   ```
@@ -109,14 +108,14 @@
   gpgkey=https://packages.fluentbit.io/fluentbit.key
   enabled=1  
   ```
-- FluentBit 시작 및 확인
+1. FluentBit 시작 및 확인
   ```bash
   sudo yum -y install fluent-bit
   sudo systemctl start fluent-bit
   systemctl status fluent-bit
   ```
 
-- access_log_topic Topic 생성
+1. access_log_topic Topic 생성
   ```bash
   kafka-topics.sh  \
   --create  \
@@ -125,14 +124,14 @@
   --replication-factor 2  \
   --partitions 1
   ```
-- Topic 생성 확인
+1. Topic 생성 확인
   ```bash
   kafka-topics.sh \
   --bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
   --list
   ```
 
-- FluentBit Config 수정
+1. FluentBit Config 수정
   ```bash
   # sudo vi /etc/fluent-bit/fluent-bit.conf
   [SERVICE]
@@ -148,13 +147,13 @@
     brokers $MSK_BOOTSTRAP_ADDRESS
     topics access_log_topic
   ```
-- FluentBit 재시작
+1. FluentBit 재시작
   ```bash
   systemctl restart fluent-bit
   systemctl status fluent-bit
   ```
 
-- MSK의 access_log_topic에 메시지가 Publish 되는지 확인
+1. MSK의 access_log_topic에 메시지가 Publish 되는지 확인
   ```bash
   kafka-console-consumer.sh \
   --bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
