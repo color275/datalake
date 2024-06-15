@@ -13,8 +13,6 @@
 1. Auto-assign public IP : Enable
 1. Common security groups : chiholee-common-sg
 1. Configure stroage : 100gib
-> [!CAUTION]  
-> chiholee-ec2-instance-profile 은 AdministratorAccess 권한을 갖고 있음
 1. Advanced details
    1. IAM instance profile : chiholee-ec2-instance-profile
 
@@ -33,6 +31,8 @@
     # Verify the timezone is set correctly
     timedatectl
     ```
+> [!CAUTION]  
+> chiholee-ec2-instance-profile 은 AdministratorAccess 권한을 갖고 있음
 
 ### Generate Order Data
 - EC2 SSH 접속
