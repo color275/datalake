@@ -15,8 +15,8 @@
   - Configure stroage : 100gib
   - Advanced details
     - IAM instance profile : chiholee-ec2-instance-profile
-        > [!CAUTION]  
-        > chiholee-ec2-instance-profile 은 AdministratorAccess 권한을 갖고 있음
+> [!CAUTION]  
+> chiholee-ec2-instance-profile 은 AdministratorAccess 권한을 갖고 있음
 
   - User data
     ```bash
@@ -95,6 +95,7 @@
     ```
 
 ### AccessLog -> MSK 파이프라인
+#### FluentBit
 - FluentBit 설치 (https://docs.fluentbit.io/manual/installation/linux/amazon-linux#amazon-linux-2023)
   ```bash
   cd /etc/yum.repos.d/
