@@ -15,8 +15,8 @@
   - Configure stroage : 100gib
   - Advanced details
     - IAM instance profile : chiholee-ec2-instance-profile
-> [!CAUTION]  
-> chiholee-ec2-instance-profile 은 AdministratorAccess 권한을 갖고 있음
+    > [!CAUTION]  
+    > chiholee-ec2-instance-profile 은 AdministratorAccess 권한을 갖고 있음
 
   - User data
     ```bash
