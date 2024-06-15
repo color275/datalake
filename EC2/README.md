@@ -89,7 +89,9 @@
    ```
 > [!INFO]  
 > rds > cluster > modify > Credentials management > Self managed 선택
+>
 > Master password 를 admin1234 로 변경
+> 
 > RDS 보안그룹이 common 보안그룹 3306 포트 허용
 
 ### AccessLog -> MSK 파이프라인
