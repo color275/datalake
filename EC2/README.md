@@ -154,8 +154,8 @@
    ```
 
 7. MSK의 access_log_topic에 메시지가 Publish 되는지 확인
-   ```bash
-   kafka-console-consumer.sh \
-   --bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
-   --topic access_log_topic
-   ```
+```bash
+kafka-console-consumer.sh \
+--bootstrap-server $MSK_BOOTSTRAP_ADDRESS \
+--topic access_log_topic
+```
