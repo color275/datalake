@@ -44,11 +44,13 @@
    ```
 1. DB Endpoint 환경 변수 저장
    ```bash
-   export RDS_WRITER_ENDPINT=chiholee.cluster-cz2ms4a2cmjt.ap-northeast-2.rds.amazonaws.com
+   echo 'export RDS_WRITER_ENDPINT=chiholee.cluster-cz2ss0kqkbwh.ap-northeast-2.rds.amazonaws.com' >> ~/.bash_profile
+   echo 'alias ss="mysql -uadmin -p -h $RDS_WRITER_ENDPINT"' >> ~/.bash_profile
+   . ~/.bash_profile
    ```
 1. order data gen
    ```bash
-   cd /home/ec2-user/datalake/gen_order_data
+   cd /home/ec2-user/datalake/ec2
    python3 -m venv .venv
    echo 'alias venv="source .venv/bin/activate"' >> ~/.bash_profile
    . ~/.bash_profile
@@ -69,9 +71,14 @@
    sudo dnf -y localinstall https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm
    sudo dnf -y install mysql mysql-community-client
    ```
+1. RDS Primary Password 를 admin1234 로 변경
+
+1. RDS 보안그룹이 common 보안그룹 3306 포트 허용
+
 1. RDS 접속, 데이터베이스/테이블 생성(password : admin1234)
     ```bash
-    cd /home/ec2-user/datalake/gen_order_data
+    cd /home/ec2-user/datalake/ec2
+
     mysql -uadmin -p -h $RDS_WRITER_ENDPINT
     create database ecommerce;
     use ecommerce
@@ -87,9 +94,3 @@
    ```bash
    nohup python generate.py &
    ```
-> [!Note]  
-> rds > cluster > modify > Credentials management > Self managed 선택
-> 
-> Master password 를 admin1234 로 변경
-> 
-> RDS 보안그룹이 common 보안그룹 3306 포트 허용

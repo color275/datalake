@@ -15,8 +15,6 @@
 
 2. connect-distributed.properties 설정
    ```bash
-   # vi $HOME_DIR/kafka/config/connect-distributed.properties
-   cp $HOME_DIR/kafka/config/connect-distributed.properties $HOME_DIR/kafka/config/connect-distributed.properties.cp
    cat << EOF > $HOME_DIR/kafka/config/connect-distributed.properties
    bootstrap.servers=$MSK_BOOTSTRAP_ADDRESS
 

@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.5.7",
-  "serial": 48,
+  "serial": 52,
   "lineage": "d62f865c-01ce-7c39-b44b-e35318db0b77",
   "outputs": {},
   "resources": [
@@ -51,7 +51,7 @@
           "schema_version": 0,
           "attributes": {
             "arn": "arn:aws:iam::aws:policy/AdministratorAccess",
-            "attachment_count": 3,
+            "attachment_count": 7,
             "description": "Provides full access to AWS services and resources.",
             "id": "arn:aws:iam::aws:policy/AdministratorAccess",
             "name": "AdministratorAccess",
@@ -75,7 +75,7 @@
           "schema_version": 0,
           "attributes": {
             "arn": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-            "attachment_count": 2,
+            "attachment_count": 4,
             "description": "The policy for Amazon EC2 Role to enable AWS Systems Manager service core functionality.",
             "id": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
             "name": "AmazonSSMManagedInstanceCore",
@@ -1608,7 +1608,7 @@
             "ipv6_cidr_block_association_id": "",
             "ipv6_native": false,
             "map_customer_owned_ip_on_launch": false,
-            "map_public_ip_on_launch": false,
+            "map_public_ip_on_launch": true,
             "outpost_arn": "",
             "owner_id": "058264542355",
             "private_dns_hostname_type_on_launch": "ip-name",
@@ -1652,7 +1652,7 @@
             "ipv6_cidr_block_association_id": "",
             "ipv6_native": false,
             "map_customer_owned_ip_on_launch": false,
-            "map_public_ip_on_launch": false,
+            "map_public_ip_on_launch": true,
             "outpost_arn": "",
             "owner_id": "058264542355",
             "private_dns_hostname_type_on_launch": "ip-name",

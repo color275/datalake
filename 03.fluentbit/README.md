@@ -36,7 +36,7 @@
    --list
    ```
 
-5. FluentBit Config 수정
+5. FluentBit Config 수정 ($MSK_BOOTSTRAP_ADDRESS 에 실제 값을 저장)
    ```bash
    # sudo vi /etc/fluent-bit/fluent-bit.conf
    [SERVICE]
@@ -54,8 +54,8 @@
    ```
 6. FluentBit 재시작
    ```bash
-   systemctl restart fluent-bit
-   systemctl status fluent-bit
+   sudo systemctl restart fluent-bit
+   sudo systemctl status fluent-bit
    ```
 
 7. MSK의 access_log_topic에 메시지가 Publish 되는지 확인
