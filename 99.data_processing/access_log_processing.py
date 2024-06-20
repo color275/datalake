@@ -35,7 +35,8 @@ if __name__ == '__main__':
         # last_timestamp = last_bookmark_time
     else:
         # Default to epoch time if no last bookmark
-        last_timestamp = datetime(2024, 6, 20, 14)
+        # last_timestamp = datetime(2024, 6, 20, 14)
+        last_timestamp = datetime.now()
 
     current_time = datetime.now()
     # s3_path = f's3a://chiholee-datalake0002/msk/access_log_topic/year={last_timestamp.year}/month={last_timestamp.month:02}/day={last_timestamp.day:02}/hour={last_timestamp.hour:02}'
