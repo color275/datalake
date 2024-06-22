@@ -2,6 +2,7 @@ from os import path
 from datetime import timedelta  
 import airflow  
 from airflow import DAG  
+
 from airflow.providers.amazon.aws.operators.emr import (
     EmrAddStepsOperator,
     EmrCreateJobFlowOperator,
@@ -13,12 +14,7 @@ from airflow.providers.amazon.aws.operators.glue import GlueJobOperator
 from airflow.providers.amazon.aws.operators.glue_crawler import GlueCrawlerOperator
 from airflow.providers.amazon.aws.transfers.s3_to_redshift import S3ToRedshiftOperator
 
-# S3_BUCKET_NAME = "chiholee-tmp"
-# GLUE_ROLE_ARN = "arn:aws:iam::531744930393:role/AnalyticsworkshopGlueRole"
-
-dag_name = 'orders_cdc_upsert_iceberg'
-# Unique identifier for the DAG
-# correlation_id = "{{ run_id }}"
+dag_name = 'access_log_processing'
   
 default_args = {  
     'owner': 'airflow',
@@ -40,7 +36,7 @@ dag = DAG(
     catchup=False
 )
 
-S3_URI = "s3://chiholee-datalake001/emr/script/"
+S3_URI = "V_S3_URI"
 
 SPARK_STEPS = [
   {
@@ -48,7 +44,7 @@ SPARK_STEPS = [
       'ActionOnFailure': 'CANCEL_AND_WAIT',
       'HadoopJarStep': {
           'Jar': 'command-runner.jar',
-          'Args': ['aws', 's3', 'cp', '--recursive', S3_URI, '/home/hadoop/']
+          'Args': ['aws', 's3', 'cp', '--recursive', S3_URI, '/home/hadoop/src/']
       }
   },
   {
@@ -56,16 +52,23 @@ SPARK_STEPS = [
       'ActionOnFailure': 'CANCEL_AND_WAIT',
       'HadoopJarStep': {
           'Jar': 'command-runner.jar',
-          'Args': ['spark-submit',
-                   '/home/hadoop/orders_cdc_upsert_iceberg.py']
+          'Args': [ 'spark-submit',
+                    '--master',
+                    'yarn',
+                    '--deploy-mode',
+                    'cluster',
+                    '--name',
+                    'access_log_processing',
+                    '--py-files',
+                    '/home/hadoop/src/last_batch_time.py',
+                    '/home/hadoop/src/access_log_processing.py',]
       }
   }
 ]
 
-
 step1 = EmrAddStepsOperator(
     task_id='add_steps',
-    job_flow_id="j-OORY788FWZC1",
+    job_flow_id="V_EMR_CLUSTER_ID",
     aws_conn_id='aws_default',
     steps=SPARK_STEPS,
     dag=dag
@@ -73,8 +76,8 @@ step1 = EmrAddStepsOperator(
 
 step1_checker = EmrStepSensor(
     task_id='watch_step1',
-    job_flow_id="j-OORY788FWZC1",
-    step_id="{{ task_instance.xcom_pull('add_steps', key='return_value')[0] }}",
+    job_flow_id="V_EMR_CLUSTER_ID",
+    step_id="{{ task_instance.xcom_pull('add_steps', key='return_value')[1] }}",
     aws_conn_id='aws_default',
     dag=dag
 )

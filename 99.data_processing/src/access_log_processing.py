@@ -8,9 +8,11 @@ import boto3
 import last_batch_time as lbt
 
 if __name__ == '__main__':
+    # 동적 파티션 덮어쓰기를 활성화
     spark = SparkSession.builder \
         .config("spark.hadoop.fs.s3a.aws.credentials.provider", "com.amazonaws.auth.DefaultAWSCredentialsProviderChain") \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:3.3.4") \
+        .config("spark.sql.sources.partitionOverwriteMode", "dynamic") \
         .appName("accesslog-processing-test01") \
         .getOrCreate()
 
@@ -48,7 +50,9 @@ if __name__ == '__main__':
     #     .json(s3_path)
 
     df = None
-    while last_timestamp < current_time:
+    last_timestamp_ymdh = datetime.strftime(last_timestamp, '%Y%m%d%H')
+    current_time_ymdh = datetime.strftime(current_time, '%Y%m%d%H')
+    while last_timestamp_ymdh <= current_time_ymdh:
         print("# last_timestamp : ", last_timestamp)
         print("# current_time : ", current_time)
         next_s3_path = f's3a://chiholee-datalake0002/msk/access_log_topic/year={last_timestamp.year}/month={last_timestamp.month:02}/day={last_timestamp.day:02}/hour={last_timestamp.hour:02}'
@@ -59,6 +63,8 @@ if __name__ == '__main__':
             df = df.union(spark.read.json(next_s3_path))
         next_timestamp = last_timestamp + timedelta(hours=1)
         last_timestamp = next_timestamp
+
+        last_timestamp_ymdh = datetime.strftime(last_timestamp, '%Y%m%d%H')
         # break
 
     # Split the 'log' column into multiple columns using regex

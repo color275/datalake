@@ -1,4 +1,33 @@
-# Create MSK
+# MSK 구성
+## MSK Config
+![](./img/2024-06-22-12-39-06.png)
+![](./img/2024-06-22-12-39-19.png)
+```bash
+auto.create.topics.enable=true
+delete.topic.enable=true
+default.replication.factor=2
+min.insync.replicas=2
+num.io.threads=8
+num.network.threads=5
+num.partitions=1
+num.replica.fetchers=2
+replica.lag.time.max.ms=30000
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+socket.send.buffer.bytes=102400
+unclean.leader.election.enable=true
+zookeeper.session.timeout.ms=18000
+```
+> [!TIP]  
+> 원활한 워크샵을 위해 기본 설정에서 아래 2개의 파라메터를 추가합니다. 각 Config 에 대한 자세한 내용은 Custom MSK configurations  를 참고하세요.
+> 
+> auto.create.topics.enable : 토픽 자동 생성
+> 
+> delete.topic.enable : 토픽 삭제 허용 여부
+
+
+
+## MSK Cluster
 
 ![](./img/2024-06-02-19-46-42.png)
 
@@ -7,6 +36,8 @@
 ![](./img/2024-06-02-19-46-21.png)
 
 ![](./img/2024-06-02-19-47-34.png)
+
+![](./img/2024-06-22-12-42-26.png)
 
 Next
 

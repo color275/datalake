@@ -1,6 +1,11 @@
 # AccessLog 
 WebServer -> MSK -> S3 파이프라인을 통해 json 형태로 저장되어 있는 Accesslog 를 필요한 컬럼을 구분한 TABLE 포맷의 parquet 로 전처리 한다.
 
+### 환경 변수 준비
+```bash
+export DATALAKE_DIR=/Users/chiholee/Desktop/Project/datalake
+```
+
 ### 원본
 ```json
 {
@@ -27,7 +32,7 @@ WebServer -> MSK -> S3 파이프라인을 통해 json 형태로 저장되어 있
 
 ### venv 설정
 ```bash
-cd data_processing
+cd $DATALAKE_DIR/99.data_processing
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
@@ -37,21 +42,21 @@ pip install -r requirements.txt
 ### pyspark 테스트
 ```bash
 export AWS_PROFILE=xxxxxx
-python access_log_processing.py
+python $DATALAKE_DIR/src/access_log_processing.py
 ```
 #### pyspark 실행
-![](2024-06-20-22-52-39.png)
+![](./img/2024-06-20-22-52-39.png)
 #### dynamodb 에 bookmark 가 저장됨
-![](2024-06-20-22-53-22.png)
+![](./img/2024-06-20-22-53-22.png)
 #### S3
-![](2024-06-20-22-54-56.png)
-![](2024-06-20-22-55-12.png)
-![](2024-06-20-22-55-24.png)
+![](./img/2024-06-20-22-54-56.png)
+![](./img/2024-06-20-22-55-12.png)
+![](./img/2024-06-20-22-55-24.png)
 
 
 ### pyCharm 설정
-![](2024-06-20-22-57-21.png)
-![](2024-06-20-23-03-11.png)
+![](./img/2024-06-20-22-57-21.png)
+![](./img/2024-06-20-23-03-11.png)
 
 ### spark-submit
 
@@ -61,8 +66,8 @@ python access_log_processing.py
 --master yarn
 --deploy-mode cluster
 --name access_log_processing
---py-files last_batch_time.py
-access_log_processing.py
+--py-files $DATALAKE_DIR/src/last_batch_time.py
+$DATALAKE_DIR/src/access_log_processing.py
 ```
 
 #### local mode
@@ -71,6 +76,13 @@ access_log_processing.py
 --master local 
 --deploy-mode client 
 --name access_log_processing 
---py-files last_batch_time.py 
-access_log_processing.py
+--py-files $DATALAKE_DIR/src/last_batch_time.py 
+$DATALAKE_DIR/src/access_log_processing.py
 ```
+
+
+### S3에 업로드
+```bash
+aws s3 sync $DATALAKE_DIR/src/ s3://chiholee-datalake0002/src/processing/
+```
+![](./img/2024-06-21-09-45-29.png)

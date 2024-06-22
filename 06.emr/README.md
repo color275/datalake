@@ -1,6 +1,11 @@
 # EMR
 
-## EMR 클러스터 생성
+### 환경 변수 준비
+```bash
+export DATALAKE_DIR=/Users/chiholee/Desktop/Project/datalake
+```
+
+### EMR 클러스터 생성
 ![](./img/2024-06-16-11-57-04.png)
 
 ![](./img/2024-06-16-11-59-11.png)
@@ -8,7 +13,7 @@
 ![](./img/2024-06-16-11-59-45.png)
 
 ### Bootstrap 설정
-아래 파일을 s3에 업로드 후 등록
+아래 파일을 s3에 업로드 후 등록 : `s3://chiholee-datalake0002/src/emr/bootstrap/emr_bootstrap.sh`
 ![](./img/2024-06-16-12-02-45.png)
 ```bash
 #!/bin/bash

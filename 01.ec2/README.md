@@ -50,7 +50,7 @@
    ```
 1. order data gen
    ```bash
-   cd /home/ec2-user/datalake/ec2
+   cd /home/ec2-user/datalake/01.ec2
    python3 -m venv .venv
    echo 'alias venv="source .venv/bin/activate"' >> ~/.bash_profile
    . ~/.bash_profile
