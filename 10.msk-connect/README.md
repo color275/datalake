@@ -366,3 +366,61 @@
 ### S3 확인
 ![](./img/2024-06-22-22-52-39.png)
 
+
+## MySQL to Redshift 구축
+wget https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-aws-redshift/versions/1.2.4/confluentinc-kafka-connect-aws-redshift-1.2.4.zip
+export HOME_DIR=~
+sudo unzip confluentinc-kafka-connect-aws-redshift-1.2.4.zip -d $HOME_DIR/kafka/plugins/
+sudo systemctl restart kafka-connect
+curl localhost:8083/connector-plugins | jq
+
+
+CREATE DATABASE ecommerce;
+CREATE USER cdc_user PASSWORD 'Admin1234';
+GRANT USAGE ON SCHEMA public TO cdc_user;
+GRANT CREATE ON SCHEMA public TO cdc_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO cdc_user;
+GRANT ALL ON SCHEMA public TO cdc_user;
+GRANT CREATE ON DATABASE ecommerce TO cdc_user;
+
+
+
+![](2024-06-23-19-30-43.png)
+
+> [!WARNING]
+> 위의 s3를 sink 한 것 처럼 topic 에 rdb.ecommerce.orders,rdb.ecommerce.customer,rdb.ecommerce.product 를 명시할 경우 redshift 의 database, schema 와 충돌이나기 때문에 아래와 같이 `topics.regex`, `table.name.format`, `transforms` 를 통해 순수 테이블명만 추출되도록 한다.
+
+```bash
+export REDSHIFT_DOMAIN=chiholee-redshift-cluster-1.cncx5aab3wic.ap-northeast-2.redshift.amazonaws.com
+export REDSHIFT_PORT=5439
+export REDSHIFT_DATABASE=ecommerce
+export REDSHIFT_USER=admin
+export REDSHIFT_PASSWORD=Admin1234
+
+curl -X POST 'http://localhost:8083/connectors' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"name": "mysql-to-redshift-sink-connector-v07",
+"config": {
+    "confluent.topic.bootstrap.servers": "'"$MSK_BOOTSTRAP_ADDRESS"'",
+    "confluent.topic.replication.factor": "1",
+    "connector.class": "io.confluent.connect.aws.redshift.RedshiftSinkConnector",
+    "tasks.max": "1",
+    "topics.regex": "rdb.ecommerce.(.*)",
+    "table.name.format": "${topic}",
+    "aws.redshift.domain": "'"$REDSHIFT_DOMAIN"'",
+    "aws.redshift.port": "'"$REDSHIFT_PORT"'",
+    "aws.redshift.database": "'"$REDSHIFT_DATABASE"'",
+    "aws.redshift.user": "'"$REDSHIFT_USER"'",
+    "aws.redshift.password": "'"$REDSHIFT_PASSWORD"'",
+    "pk.mode": "kafka",
+    "auto.create": "true",
+    "transforms": "RenameTopic",
+    "transforms.RenameTopic.type": "org.apache.kafka.connect.transforms.RegexRouter",
+    "transforms.RenameTopic.regex": "rdb.ecommerce.(.*)",
+    "transforms.RenameTopic.replacement": "$1"
+   }
+}' | jq
+```
+
+![](2024-06-23-22-31-31.png)
