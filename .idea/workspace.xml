@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e29e201-825d-45f8-a76f-9e1ba101982e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/datalake.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/06.emr/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/06.emr/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/99.data_processing/src/access_log_processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/99.data_processing/src/access_log_processing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/99.data_processing/src/orders_cdc_full_from_kafka.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/customer_cdc_full_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/customer_cdc_upsert_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/old/glue_notebook_cdc_initial_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/old/glue_notebook_cdc_upsert_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/orders_cdc_full_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/orders_cdc_upsert_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/orders_cdc_upsert_iceberg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/product_cdc_full_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/glue/product_cdc_upsert_iceberg.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/.terraform.lock.hcl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/cloudwatch.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/iam.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/rds.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/sg.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/terraform.tfstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/terraform.tfstate.backup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/terraform.tfstate.datalake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iac/vpc.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/README_DO_NOT_TOUCH_FILES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/db.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/dbex.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/log/README_DO_NOT_TOUCH_FILES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/log/log.ctrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/log/log1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/log/logmirror.ctrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/README_DO_NOT_TOUCH_FILES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c10.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c101.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c111.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c121.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c130.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c141.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c150.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c161.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c171.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c180.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c191.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c1a1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c1b1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c1c0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c1d1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c1e0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c1f1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c20.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c200.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c211.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c221.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c230.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c241.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c251.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c260.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c271.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c281.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c290.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c2a1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c2b1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c2c1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c2d0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c2e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c2f0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c300.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c31.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c311.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c321.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c331.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c340.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c351.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c361.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c371.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c380.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c391.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c3a1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c3b1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c3c0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c3d1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c3e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c3f1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c400.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c41.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c411.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c421.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c430.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c441.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c451.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c461.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c470.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c481.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c490.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c4a1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c4b0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c4c1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c4d1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c4e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c4f0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c501.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c51.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c510.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c521.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c530.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c541.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c550.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c561.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c570.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c581.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c590.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c5a1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c5b0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c5c1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c5d0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c5e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c5f0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c60.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c601.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c610.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c621.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c630.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c641.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c650.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c661.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c670.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c681.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c690.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c6a1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c6b0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c6c1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c6d0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c6e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c6f0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c701.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c71.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c711.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c721.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c731.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c741.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c751.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c761.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c771.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c781.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c791.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c7a1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c7b1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c7c1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c7d1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c7e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c7f1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c801.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c81.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c811.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c821.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c831.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c840.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c851.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c860.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c871.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c880.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c891.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c8a0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c8b1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c8c1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c8d1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c8e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c8f1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c90.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c901.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c911.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c920.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c931.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c941.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c951.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c961.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c971.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c980.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c991.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c9a0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c9b1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c9c0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c9d1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c9e1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/c9f0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/ca01.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/ca1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/ca11.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/cb1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/cc0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/cd1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/ce1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/seg0/cf0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metastore_db/service.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2hxBNOYK1mTgIFVssF2uS5UmPXx" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "PySpark.access_log_processing.executor": "Run",
+    "PySpark.test-cluster.executor": "Run",
+    "PySpark.test-local.executor": "Run",
+    "PySpark.test.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/chiholee/Desktop/Project/datalake",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/99.data_processing/tmp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PySpark.access_log_processing">
+    <configuration name="access_log_processing" type="PySparkSubmitConfigurationType" factoryName="ClusterSparkJobConfigurationType" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="archives">
+        <list />
+      </option>
+      <option name="artifactArgs" value="" />
+      <option name="artifactPath">
+        <FilePath>
+          <option name="path" value="$PROJECT_DIR$/99.data_processing/access_log_processing.py" />
+          <option name="type" value="upload" />
+        </FilePath>
+      </option>
+      <option name="beforeShellScript" value="" />
+      <option name="className" value="" />
+      <option name="clusterManager" value="YARN" />
+      <option name="clusterManagerDeployModeDefault" value="true" />
+      <option name="conf" value="" />
+      <option name="debugDriverEnable" value="true" />
+      <option name="debugDriverPort" />
+      <option name="debugDriverSuspend" />
+      <option name="deployMode" value="CLUSTER" />
+      <option name="driverClassPath">
+        <list />
+      </option>
+      <option name="driverCores" value="" />
+      <option name="driverJavaOptions" value="" />
+      <option name="driverLibraryPath">
+        <list />
+      </option>
+      <option name="driverMemory" value="" />
+      <option name="envParams" value="" />
+      <option name="excludePackages" value="" />
+      <option name="executorCores" value="" />
+      <option name="executorMemory" value="" />
+      <option name="files">
+        <list />
+      </option>
+      <option name="interactive" value="false" />
+      <option name="jars">
+        <list />
+      </option>
+      <option name="keytab">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="" />
+        </FilePath>
+      </option>
+      <option name="master" value="local" />
+      <option name="numExecutors" value="" />
+      <option name="packages" value="" />
+      <option name="principal" value="" />
+      <option name="projectPathOnTarget" />
+      <option name="propertiesFile">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="" />
+        </FilePath>
+      </option>
+      <option name="proxyUser" value="" />
+      <option name="pyFiles">
+        <list>
+          <FilePath>
+            <option name="path" value="$PROJECT_DIR$/99.data_processing/last_batch_time.py" />
+            <option name="type" value="upload" />
+          </FilePath>
+        </list>
+      </option>
+      <option name="queue" value="" />
+      <option name="remoteTargetId">
+        <RemoteTargetId>
+          <option name="clusterId" value="j-17W2Q4MSK5H0N" />
+          <option name="connectionId" value="AWS EMR@EmrConnectionGroup@-6850090361913404927" />
+        </RemoteTargetId>
+      </option>
+      <option name="repositories" value="" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="shellExecutor" value="/bin/bash" />
+      <option name="sparkHome" value="" />
+      <option name="sparkMonitoringDriverId" value="" />
+      <option name="supervise" value="false" />
+      <option name="targetDirectory">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="server" />
+        </FilePath>
+      </option>
+      <option name="totalExecutorCores" value="" />
+      <option name="verbose" value="false" />
+      <option name="visibleBlocks">
+        <map>
+          <entry key="SPARK_CONFIG" value="false" />
+          <entry key="DEPENDENCIES" value="true" />
+          <entry key="MAVEN_DEPENDENCIES" value="false" />
+          <entry key="DRIVER" value="false" />
+          <entry key="EXECUTOR" value="false" />
+          <entry key="KERBEROS" value="false" />
+          <entry key="ADDITIONAL" value="false" />
+          <entry key="SHELL_OPTIONS" value="false" />
+        </map>
+      </option>
+      <option name="workDirectoryPath">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="server" />
+        </FilePath>
+      </option>
+      <method v="2">
+        <option name="SftpSparkFileUpload" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="test-cluster" type="PySparkSubmitConfigurationType" factoryName="ClusterSparkJobConfigurationType" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="archives">
+        <list />
+      </option>
+      <option name="artifactArgs" value="" />
+      <option name="artifactPath">
+        <FilePath>
+          <option name="path" value="$PROJECT_DIR$/data_processing/test.py" />
+          <option name="type" value="upload" />
+        </FilePath>
+      </option>
+      <option name="beforeShellScript" value="" />
+      <option name="className" value="" />
+      <option name="clusterManager" value="YARN" />
+      <option name="clusterManagerDeployModeDefault" value="false" />
+      <option name="conf" value="" />
+      <option name="debugDriverEnable" value="true" />
+      <option name="debugDriverPort" />
+      <option name="debugDriverSuspend" />
+      <option name="deployMode" value="CLUSTER" />
+      <option name="driverClassPath">
+        <list />
+      </option>
+      <option name="driverCores" value="" />
+      <option name="driverJavaOptions" value="" />
+      <option name="driverLibraryPath">
+        <list />
+      </option>
+      <option name="driverMemory" value="" />
+      <option name="envParams" value="" />
+      <option name="excludePackages" value="" />
+      <option name="executorCores" value="" />
+      <option name="executorMemory" value="" />
+      <option name="files">
+        <list />
+      </option>
+      <option name="interactive" value="false" />
+      <option name="jars">
+        <list />
+      </option>
+      <option name="keytab">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="" />
+        </FilePath>
+      </option>
+      <option name="master" value="local" />
+      <option name="numExecutors" value="" />
+      <option name="packages" value="" />
+      <option name="principal" value="" />
+      <option name="projectPathOnTarget" />
+      <option name="propertiesFile">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="" />
+        </FilePath>
+      </option>
+      <option name="proxyUser" value="" />
+      <option name="pyFiles">
+        <list>
+          <FilePath>
+            <option name="path" value="$PROJECT_DIR$/data_processing/last_batch_time.py" />
+            <option name="type" value="upload" />
+          </FilePath>
+        </list>
+      </option>
+      <option name="queue" value="" />
+      <option name="remoteTargetId">
+        <RemoteTargetId>
+          <option name="clusterId" value="j-17W2Q4MSK5H0N" />
+          <option name="connectionId" value="AWS EMR@EmrConnectionGroup@-6850090361913404927" />
+        </RemoteTargetId>
+      </option>
+      <option name="repositories" value="" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="shellExecutor" value="/bin/bash" />
+      <option name="sparkHome" value="" />
+      <option name="sparkMonitoringDriverId" value="" />
+      <option name="supervise" value="false" />
+      <option name="targetDirectory">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="server" />
+        </FilePath>
+      </option>
+      <option name="totalExecutorCores" value="" />
+      <option name="verbose" value="false" />
+      <option name="visibleBlocks">
+        <map>
+          <entry key="SPARK_CONFIG" value="true" />
+          <entry key="DEPENDENCIES" value="true" />
+          <entry key="MAVEN_DEPENDENCIES" value="false" />
+          <entry key="DRIVER" value="false" />
+          <entry key="EXECUTOR" value="false" />
+          <entry key="KERBEROS" value="false" />
+          <entry key="ADDITIONAL" value="false" />
+          <entry key="SHELL_OPTIONS" value="false" />
+        </map>
+      </option>
+      <option name="workDirectoryPath">
+        <FilePath>
+          <option name="path" value="" />
+          <option name="type" value="server" />
+        </FilePath>
+      </option>
+      <method v="2">
+        <option name="SftpSparkFileUpload" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="datalake" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AWS_PROFILE" value="yogiyo" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PySpark.access_log_processing" />
+      <item itemvalue="PySpark.test-cluster" />
+      <item itemvalue="Python.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-7a29c1521ef0-c986f194a52a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.11799.298" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e29e201-825d-45f8-a76f-9e1ba101982e" name="Changes" comment="" />
+      <created>1718525807952</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718525807952</updated>
+      <workItem from="1718525809086" duration="24289000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/datalake$test.coverage" NAME="test Coverage Results" MODIFIED="1718880116372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+  </component>
+</project>

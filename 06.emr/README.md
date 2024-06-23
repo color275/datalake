@@ -38,7 +38,9 @@ sudo timedatectl set-timezone Asia/Seoul
 
 ![](./img/2024-06-16-12-04-48.png)
 
-이 후 Iceberg의 bookmark 를 dynamoDB를 사용하므로 AmazonDynamoDBFullAccess 정책을 생성된 프로파일에 추가
+이 후 Iceberg의 bookmark 를 dynamoDB를 사용하므로 AmazonDynamoDBFullAccess 정책을, Glue 사용을 위해 AWSGlueServiceRole 정책을 생성된 프로파일에 추가
+- AmazonDynamoDBFullAccess
+- AWSGlueServiceRole
 ![](./img/2024-06-16-12-05-01.png)
 
 

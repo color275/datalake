@@ -16,8 +16,8 @@ if __name__ == '__main__':
         .appName("accesslog-processing-test01") \
         .getOrCreate()
 
-    dynamodb_table_name = "emr_last_batch_time"
     table_name = "access_log"
+    dynamodb_table_name = "emr_last_batch_time"
     dynamodb = boto3.client('dynamodb', region_name='ap-northeast-2')
     existing_tables = dynamodb.list_tables()['TableNames']
     if dynamodb_table_name in existing_tables:
