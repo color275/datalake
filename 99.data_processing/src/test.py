@@ -3,7 +3,7 @@ import pyarrow.parquet as pq
 def print_parquet_schema(file_path):
     # Parquet 파일 읽기
     parquet_file = pq.ParquetFile(file_path)
-    
+     
     # 스키마 출력
     print(parquet_file.schema)
 

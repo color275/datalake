@@ -42,7 +42,7 @@ if __name__ == '__main__':
                 # "com.amazonaws:aws-java-sdk-core:1.12.725,"
                 # "com.amazona  ws:jmespath-java:1.12.725"
                 ) \
-        .appName("Orders CDC Full") \
+        .appName("Orders Iceberg Full") \
         .getOrCreate()
 
     

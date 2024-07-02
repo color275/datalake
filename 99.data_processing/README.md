@@ -81,11 +81,14 @@ $DATALAKE_DIR/99.data_processing/src/access_log_processing.py
 --py-files last_batch_time.py
 access_log_processing.py
 ```
-### S3에 업로드
+### Spark 코드 S3에 업로드
+airflow 에서 사용하기 위해 s3 에 업로드
 ```bash
 aws s3 sync $DATALAKE_DIR/99.data_processing/src s3://chiholee-datalake0002/src/processing/
 ```
 ![](./img/2024-06-21-09-45-29.png)
+
+
 
 
 ## MySQL -> MSK -> S3 데이터 트랜잭션 처리 

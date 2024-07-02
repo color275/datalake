@@ -375,13 +375,8 @@ sudo systemctl restart kafka-connect
 curl localhost:8083/connector-plugins | jq
 
 
-CREATE DATABASE ecommerce;
-CREATE USER cdc_user PASSWORD 'Admin1234';
-GRANT USAGE ON SCHEMA public TO cdc_user;
-GRANT CREATE ON SCHEMA public TO cdc_user;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO cdc_user;
-GRANT ALL ON SCHEMA public TO cdc_user;
-GRANT CREATE ON DATABASE ecommerce TO cdc_user;
+CREATE DATABASE staging;
+CREATE SCHEMA ecommerce;
 
 
 
@@ -393,21 +388,25 @@ GRANT CREATE ON DATABASE ecommerce TO cdc_user;
 ```bash
 export REDSHIFT_DOMAIN=chiholee-redshift-cluster-1.cncx5aab3wic.ap-northeast-2.redshift.amazonaws.com
 export REDSHIFT_PORT=5439
-export REDSHIFT_DATABASE=ecommerce
+export REDSHIFT_DATABASE=staging
 export REDSHIFT_USER=admin
 export REDSHIFT_PASSWORD=Admin1234
+export REDSHIFT_PASSWORD=Admin1234
+
+# curl --location --request GET 'http://localhost:8083/connectors' | jq
+# curl -X DELETE "http://localhost:8083/connectors/mysql-to-redshift-sink-connector-v07" | jq
 
 curl -X POST 'http://localhost:8083/connectors' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"name": "mysql-to-redshift-sink-connector-v07",
+"name": "mysql-to-redshift-sink-connector-v08",
 "config": {
     "confluent.topic.bootstrap.servers": "'"$MSK_BOOTSTRAP_ADDRESS"'",
     "confluent.topic.replication.factor": "1",
     "connector.class": "io.confluent.connect.aws.redshift.RedshiftSinkConnector",
     "tasks.max": "1",
     "topics.regex": "rdb.ecommerce.(.*)",
-    "table.name.format": "${topic}",
+    "table.name.format": "ecommerce.${topic}",
     "aws.redshift.domain": "'"$REDSHIFT_DOMAIN"'",
     "aws.redshift.port": "'"$REDSHIFT_PORT"'",
     "aws.redshift.database": "'"$REDSHIFT_DATABASE"'",
@@ -423,4 +422,4 @@ curl -X POST 'http://localhost:8083/connectors' \
 }' | jq
 ```
 
-![](2024-06-23-22-31-31.png)
+![](2024-06-25-09-35-50.png)
