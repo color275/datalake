@@ -380,3 +380,5 @@ aws s3 cp my_cosmos_dag.py s3://chiholee-datalake0002/mwaa/dags/my_cosmos_dag.py
 
 
 ![](./img/2024-07-01-17-50-35.png)
+
+

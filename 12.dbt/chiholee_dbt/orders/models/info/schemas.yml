@@ -1,0 +1,34 @@
+version: 2
+
+models:
+- name: info_customer_conversion_rate
+  description: "Information table for customer conversion rates"
+  columns:
+  - name: customer_id
+    tests:
+    - not_null
+    description: "Unique identifier for each customer"
+  - name: customer_name
+    description: "Full name of the customer"
+  - name: page_views
+    description: "Number of product page views by the customer"
+  - name: orders
+    description: "Number of orders placed by the customer"
+  - name: conversion_rate
+    description: "Customer conversion rate"
+
+- name: info_product_conversion_rate
+  description: "Information table for product conversion rates"
+  columns:
+  - name: product_id
+    tests:
+    - not_null
+    description: "Unique identifier for each product"
+  - name: product_name
+    description: "Name of the product"
+  - name: page_views
+    description: "Number of page views for the product"
+  - name: orders
+    description: "Number of orders placed for the product"
+  - name: conversion_rate
+    description: "Product conversion rate"

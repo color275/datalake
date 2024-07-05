@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+- name: source
+  schema: ext_s3
+  tables:
+  - name: orders_from_kafka
+  - name: customer_from_kafka
+  - name: product_from_kafka
+  - name: access_log_topic_1st_processing
+
