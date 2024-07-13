@@ -83,6 +83,8 @@
     create database ecommerce;
     use ecommerce
     source ecommerce_backup.sql
+    ALTER TABLE orders 
+MODIFY COLUMN last_update_time DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6);
     exit
     ```
 1. AccessLog 디렉토리 생성

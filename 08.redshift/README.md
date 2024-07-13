@@ -111,3 +111,9 @@ IAM_ROLE default
 ![](2024-06-26-23-58-59.png)
 ![](2024-06-26-23-59-52.png)
 
+
+
+# Redshift Serverless
+3개의 서브넷 - 서브넷은 3개 이상 있어야 하며 3개의 가용 영역에 걸쳐 있어야 합니다. 예를 들어 가용 영역 us-east-1a, us-east-1b, us-east-1c에 매핑되는 3개의 서브넷을 사용할 수 있습니다. 미국 서부(캘리포니아 북부) 리전은 예외입니다. 다른 리전과 동일한 방식으로 세 개의 서브넷이 필요하지만, 이러한 서브넷은 두 개의 가용 영역에만 존재해야 합니다. 존재하는 가용 영역 중 하나에 서브넷 두 개가 포함되어야 합니다.
+https://docs.aws.amazon.com/ko_kr/redshift/latest/mgmt/serverless-usage-considerations.html
+![](2024-07-08-14-41-37.png)
