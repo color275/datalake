@@ -67,6 +67,7 @@ s3 endpoint 필요... 왜 필요하지? public subnet 인데....
 initial load 후 cdc 를 수행할 때 기준이 될 seq number 를 찾기가 힘들다.
 차라리 처음부터 initial load + cdc를 하는것이 맞겠다.
 
+Cloudwatch Logging 옵션 선택 할것.. (캡쳐에는 없음)
 ![](2024-07-13-16-10-06.png)
 `Stop task after full load completes` 헷갈리는 옵션....
 ![](2024-07-13-16-10-31.png)
@@ -151,4 +152,23 @@ DROP PARTITION p1;
 ```
 ![](2024-07-13-17-31-18.png)
 ![](2024-07-13-17-30-11.png)
+![](2024-07-13-17-38-19.png)
+![](2024-07-13-17-39-23.png)
+ Table 'ecommerce'.'sales' was errored/suspended (subtask 0 thread 0)
+ sales 테이블은 더 이상 복제 되지 않음.
 
+트러블 슈팅 [참고](https://repost.aws/knowledge-center/dms-task-error-status)
+오류 해결 후 오류 테이블 reload [참고](https://docs.aws.amazon.com/ko_kr/dms/latest/userguide/CHAP_Tasks.ReloadTables.html)
+
+Reload 클릭
+에러 복구 과정에서 전체 Reload 를 하네......... (redshift 의 sales 테이블 create time 확인하니..)
+```sql
+SELECT
+	*
+FROM SVV_TABLE_INFO
+WHERE database = 'prod'
+  AND schema = 'ecommerce'
+ORDER BY tbl_rows;
+```
+![](2024-07-13-17-45-59.png)
+![](2024-07-13-17-49-00.png)
